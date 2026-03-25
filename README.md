@@ -3,7 +3,7 @@
 
 ## Anggota Kelompok
 | Nama           | NRP        | Kelas     |
-| ---            | ---        | ----------|
+| Izzudin Ali Akbari            | 5025231313        | Pemrograman Jaringan C|
 |                |            |           |
 |                |            |           |
 
