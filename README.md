@@ -2,10 +2,10 @@
 # Network Programming - Assignment G01
 
 ## Anggota Kelompok
-| Nama           | NRP        | Kelas     |
-| Izzudin Ali Akbari            | 5025231313        | Pemrograman Jaringan C|
-|                |            |           |
-|                |            |           |
+
+| Nama               | NRP        | Kelas                  |
+|--------------------|------------|------------------------|
+| Izzudin Ali Akbari | 5025231313 | Pemrograman Jaringan C |
 
 ## Link Youtube (Unlisted)
 Link ditaruh di bawah ini
