@@ -9,7 +9,7 @@
 
 ## Link Youtube (Unlisted)
 
-Tempel link video demo di sini:
+Tautan video demo (unlisted) diletakkan pada bagian ini:
 
 ```
 https://youtube.com/...
@@ -17,45 +17,45 @@ https://youtube.com/...
 
 ## Penjelasan Program
 
-Project ini adalah **TCP multi-client terminal app** dengan fitur chat broadcast dan transfer file.
+Program ini merupakan aplikasi terminal berbasis **TCP** yang mendukung koneksi multi-klien, pengiriman pesan (chat) secara broadcast, serta transfer file (unggah dan unduh). Implementasi server disediakan dalam empat variasi untuk memenuhi kebutuhan tugas, yaitu synchronous, berbasis `select`, berbasis `poll`, dan berbasis `thread`.
 
 ### File yang dikerjakan
 
-- `server-sync.py` — synchronous (melayani **1 client** pada satu waktu)
-- `server-select.py` — asynchronous memakai modul `select`
-- `server-poll.py` — asynchronous memakai syscall `poll` (paling cocok Linux)
-- `server-thread.py` — multi-client memakai `threading`
-- `client.py` — client terminal untuk semua server
-- `common.py` — helper bersama (HOST/PORT, util kirim/terima, direktori)
+- `server-sync.py` — server synchronous (melayani satu klien pada satu waktu)
+- `server-select.py` — server asynchronous menggunakan modul `select`
+- `server-poll.py` — server asynchronous menggunakan mekanisme `poll` (direkomendasikan untuk Linux)
+- `server-thread.py` — server multi-klien menggunakan `threading`
+- `client.py` — aplikasi klien terminal untuk seluruh variasi server
+- `common.py` — modul bantu bersama (konfigurasi host/port, utilitas kirim/terima, serta definisi direktori)
 
-### Fitur & Command Client
+### Fungsionalitas dan Perintah Klien
 
-- Broadcast chat ke semua client yang terhubung
-- Command:
-	- `/list` — list file yang ada di server
-	- `/upload <path_file>` — upload file ke server
-	- `/download <filename>` — download file dari server
-	- `/quit` — keluar dari client
+- Broadcast chat ke seluruh klien yang terhubung.
+- Perintah yang tersedia pada klien:
+  - `/list` — menampilkan daftar file pada server
+  - `/upload <path_file>` — mengunggah file dari sisi klien ke server
+  - `/download <filename>` — mengunduh file dari server ke sisi klien
+  - `/quit` — mengakhiri sesi klien
 
-### Lokasi file
+### Struktur Direktori
 
-- File server tersimpan di folder `storage/`
-- File hasil download client tersimpan di folder `downloads/`
+- Berkas yang tersimpan pada server berada pada direktori `storage/`.
+- Berkas hasil unduhan klien berada pada direktori `downloads/`.
 
-### Protokol (ringkas)
+### Spesifikasi Protokol (Ringkas)
 
-- Semua kontrol memakai **header JSON** yang diakhiri newline (`\n`).
-- Untuk upload/download, setelah header dikirim, data file dikirim sebagai **raw bytes** sepanjang `size`.
+- Seluruh pesan kontrol dikirim sebagai **header JSON** yang diakhiri newline (`\n`).
+- Untuk unggah/unduh, setelah header dikirim, data file dikirim sebagai **raw bytes** dengan panjang sesuai nilai `size`.
 
-Contoh tipe pesan:
+Jenis pesan yang digunakan meliputi:
 - `chat`, `info`, `error`
 - `list_request` → `list_response`
-- `upload` (punya `filename`, `size`) → server menerima bytes
-- `download` (punya `filename`) → server balas `file` (punya `filename`, `size`) lalu bytes
+- `upload` (memiliki `filename`, `size`) → server menerima bytes sesuai `size`
+- `download` (memiliki `filename`) → server mengirim header `file` (memiliki `filename`, `size`) diikuti bytes
 
 ## Cara Menjalankan
 
-Jalankan server (pilih salah satu):
+1) Jalankan server (pilih salah satu variasi):
 
 ```bash
 python3 server-thread.py
@@ -65,28 +65,15 @@ python3 server-thread.py
 # python3 server-sync.py
 ```
 
-Lalu jalankan client:
+2) Jalankan klien:
 
 ```bash
 python3 client.py
 ```
 
-Default host/port: `127.0.0.1:5000`.
+Konfigurasi default host/port adalah `127.0.0.1:5000`.
 
-## Cara Demo (untuk video)
-
-Rekomendasi demo utama: `server-thread.py` (multi-client jelas).
-
-1. Jalankan `server-thread.py`
-2. Buka 2 terminal, jalankan `client.py` di masing-masing terminal (Client A dan Client B)
-3. **Broadcast**: kirim chat dari Client A, pastikan muncul di Client B
-4. **/list**: ketik `/list` dan tampilkan daftar file server (lihat folder `storage/`)
-5. **/upload**: buat file lalu upload
-	 - `echo "ini file demo" > demo.txt`
-	 - `/upload demo.txt`
-6. **/download**: dari client lain ketik `/download demo.txt` lalu cek file masuk `downloads/`
-
-Catatan untuk `server-sync.py`: server ini hanya melayani 1 client dalam satu waktu (sesuai requirement “sync”).
+Catatan: `server-sync.py` bersifat synchronous dan hanya melayani satu klien pada satu waktu, sesuai dengan spesifikasi tugas.
 
 ## Screenshot Hasil
 
