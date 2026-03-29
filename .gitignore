@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Local/OS
+.DS_Store
+
+# Runtime artifacts
+# downloads/ berisi hasil download saat demo
+# (foldernya tetap ada via downloads/.gitkeep)
+downloads/*
+!downloads/.gitkeep
+
+# File demo lokal
+/demo.txt
