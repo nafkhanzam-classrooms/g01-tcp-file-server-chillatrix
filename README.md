@@ -12,7 +12,7 @@
 Tautan video demo (unlisted) diletakkan pada bagian ini:
 
 ```
-https://youtube.com/...
+https://youtu.be/gGggh4mVJEM
 ```
 
 ## Penjelasan Program
