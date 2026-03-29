@@ -15,3 +15,6 @@ downloads/*
 
 # File demo lokal
 /demo.txt
+
+# Contoh file upload saat pengujian (artefak runtime)
+storage/demo.txt

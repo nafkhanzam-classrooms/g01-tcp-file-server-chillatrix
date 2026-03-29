@@ -77,4 +77,44 @@ Catatan: `server-sync.py` bersifat synchronous dan hanya melayani satu klien pad
 
 ## Screenshot Hasil
 
-Tambahkan screenshot hasil demo (client & server output) di sini.
+Berikut adalah dokumentasi hasil pengujian program sesuai fungsionalitas yang diminta.
+
+1. **Server Thread Berjalan**  
+  Menunjukkan `server-thread.py` berhasil dijalankan dan melakukan bind pada `127.0.0.1:5000`.
+
+  ![Server thread berjalan](ss/Screenshot%20from%202026-03-29%2014-47-01.png)
+
+2. **Koneksi Multi-Klien (Thread Server)**  
+  Menunjukkan server menerima lebih dari satu koneksi klien (ditandai dengan beberapa log `[CONNECTED]`).
+
+  ![Multi-klien terhubung ke thread server](ss/Screenshot%20from%202026-03-29%2014-47-58.png)
+
+3. **Broadcast Chat antar Klien**  
+  Menunjukkan pesan chat dari satu klien diterima oleh klien lain (broadcast) melalui server.
+
+  ![Broadcast chat](ss/Screenshot%20from%202026-03-29%2014-49-16.png)
+
+4. **Unggah Berkas dan Daftar Berkas (`/upload` dan `/list`)**  
+  Menunjukkan proses unggah berkas dari klien ke server berhasil, serta berkas yang diunggah muncul pada hasil `/list`.
+
+  ![Upload dan list file](ss/Screenshot%20from%202026-03-29%2014-51-21.png)
+
+5. **Unduh Berkas (`/download`)**  
+  Menunjukkan proses unduh berkas dari server berhasil dan berkas tersimpan pada direktori `downloads/` di sisi klien.
+
+  ![Download file](ss/Screenshot%20from%202026-03-29%2014-51-35.png)
+
+6. **Server Select Berjalan**  
+  Menunjukkan variasi server berbasis `select` (`server-select.py`) dapat dijalankan.
+
+  ![Select server berjalan](ss/Screenshot%20from%202026-03-29%2014-52-10.png)
+
+7. **Server Poll Berjalan**  
+  Menunjukkan variasi server berbasis `poll` (`server-poll.py`) dapat dijalankan.
+
+  ![Poll server berjalan](ss/Screenshot%20from%202026-03-29%2014-52-28.png)
+
+8. **Server Sync Berjalan**  
+  Menunjukkan variasi server synchronous (`server-sync.py`) dapat dijalankan dan melayani satu klien pada satu waktu.
+
+  ![Sync server berjalan](ss/Screenshot%20from%202026-03-29%2014-52-50.png)
